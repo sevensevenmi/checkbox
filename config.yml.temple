@@ -1,9 +1,40 @@
-#注意所有的冒号后边都有个空格 别删别删
+#注意冒号后边都有个空格 别删别删
+#注意冒号后边都有个空格 别删别删
+#注意冒号后边都有个空格 别删别删
+#注意冒号后边都有个空格 别删别删
+#注意冒号后边都有个空格 别删别删
+#注意冒号后边都有个空格 别删别删
+#格式报错自行百度yaml格式在线校验进去测试下就行了...
+
+#任务列表 任务1&任务2
+cbList: ssly&ssly
+
+#推送参数
+Push:
+#企业微信推送
+  qywx:
+    corpsecret: 
+    corpid: 
+    agentid: 
+    mediaid:
+#telegram推送     
+  tgpushkey:
+    tgbotoken: 
+    chatid: 
+#server酱turbo版    
+  sckey: 
+#qmsg酱  
+  qmsgkey:
+#推送加  
+  pushplustoken: 
+
 
 #联众打码账号密码https://www.jsdati.com/
+#无对应脚本 仅用于需要打码的时候
 Lzong:
   account: 
   password: 
+
 
 #多看阅读 cookie为app里的全部cookie
 duokan:
@@ -93,6 +124,8 @@ mt:
 #sf轻小说 app
 sfacg:
   cookie: 
+  sfsecurity: 
+  authorization: 
 
 #猫耳fm 网页 全部cookie
 maoer:
@@ -225,6 +258,7 @@ dsdlove:
 aiqicha: 
   cookie: 
     - cookie在这里 -不能取消 空格也要
+    - 多账号继续往下 不需要的请删除
 
 #曲奇云盘      
 quqi:
@@ -265,9 +299,35 @@ yunys:
   device_model: 
   app_id: 
 
-#瞻彼文学 cookie为app里的全部cookie
-
-zbwx:
+#瞻彼文学 cookie为app里的全部cookie zbwx.js
+zbwx: 
   cookie: accessToken=xxxxxxxx
   
+#天使动漫  tsdm.js
+tsdm:
+  cookie:  
+      
+#耽漫资源网  fuman99.js
+fuman99:
+  cookie: 
+  
+#Qoo token  Qoo.js
+Qoo:
+  token:       
+
+#轻之文库 linovel.js
+linovel:
+  cookie:   
  
+#游戏动力app
+gamepower:
+  contentoken:  
+  
+  
+#立创
+oshwhub:
+  cookie: 
+
+#捷配 客编中的数字 如 J1845A id就是1845
+jiepei:
+  MbId:  

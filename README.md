@@ -1,11 +1,11 @@
 <div align="center"> 
 <h1 align="center">签到盒</h1>
-
+ 
 [![GitHub stars](https://img.shields.io/github/stars/wenmoux/checkbox?style=flat-square)](https://github.com/wenmoux/checkbox)
 [![GitHub forks](https://img.shields.io/github/forks/wenmoux/checkbox?style=flat-square)](https://github.com/wenmoux/checkbox/network)
 [![GitHub issues](https://img.shields.io/github/issues/wenmoux/checkbox?style=flat-square)](https://github.com/wenmoux/checkbox/issues)
 ![GitHub issues](https://img.shields.io/github/languages/code-size/wenmoux/checkbox?style=flat-square)
-</div>
+</div>  
 
 # 简介
 一些常用网站以及app的签到,有用的话点个star⭐️呗  
@@ -74,28 +74,26 @@
  - [x] [帆软社区](bbs.fanruan.com)签到/大转盘/摇摇乐
  - [x] 瞻彼文学app每日签到
  - [x] 云原神每日签到
+ - [x] Qoo app 每日签到
+ - [x] [天使动漫](https://tsdm.live/forum.php?mobile=yes)每日签到and打工
+ - [x] [耽漫](99fuman.com)每日签到
+ - [x] [轻之文库](www.linovel.net)每日签到
+ - [x] [游戏动力app]()每日任务
+ - [x] [立创](https://oshwhub.com)每日签到
+ - [x] [捷配](https://www.jiepei.com/Member)每日签到
+
 </details>
-
  
-
 # 使用方法 (懂得自然懂 bushi  
-
 [教程：关于如何使用termux运行签到盒那件事](https://blog.1oner.cn/posts/termux-checkbox/)  
 termux可以使用crontab设置定时任务  
 写法参见crontab.list
-
-关于如何使用云函数
-下载代码 把index.js删掉 tscf.js改成index.js然后导入云函数就好了(我只用过腾讯云函数 其它的不知道  
-如果提示找不到入口函数 大概率是你压缩包多套了一层( ´艸｀)
-
-
 
 下载源码,安装依赖
 复制一份config.yml.temple文件并改名config.yml 
 在config.yml文件内填入对应cookies(不要更改原有格式
 > 注意每个冒号后面都有空格  
-
-在index.js文件里自行按照格式添加需要的任务,运行
+在`config.yml`文件里自行按照格式添加需要的任务,运行
    ```       
       git clone https://github.com/Wenmoux/checkbox.git
       cd /sdcard/checkbox (这里还是要看你的路径)
@@ -104,25 +102,34 @@ termux可以使用crontab设置定时任务
    ```  
    
          
-如不想填signList,可在index.js后加上对应脚本名字    
+如不想填任务列表,可在index.js后加上对应脚本名字    
 如`node index.js acfun csdn`  
 多脚本间用空格  
-一般用于定时任务  
+一般用于定时任务 
+
+ 
 ## 青龙使用教程
 ```
-ql repo https://github.com/Wenmoux/checkbox.git "index" "node_modules|icon" "scripts|config|Template|sendmsg"
-cp /ql/scripts/config.yml.temple /ql/config/config.yml
-npm install  axios crypto crypto-js fs iconv-lite js-yaml yargs
+ql repo https://github.com/Wenmoux/checkbox.git "index|install" "node_modules|icon" "scripts|config|Template|sendmsg"
 ```
-之后在config.yml里填写cookie等信息
-任务列表写在环境变量里
-`cbList`   `xx& xx`  如 csdn&aiqicha
-
+ > 1 在面板内添加定时任务
+ 2 手动运行签到盒安装任务 成功后请禁用
+ 3 在`config.yml`里填写cookie以及需要运行的任务列表(开头cbList)等信息  
 
 # other
 <details>
 <summary>更新日志</summary>
 
+- 2021-10-24 
+  - 修复绅士领域签到 更新青龙安装签到盒方式
+  - 新增捷配和立创每日签到
+- 2021-10-24 - 修复绅士领域签到 更新青龙安装签到盒方式
+- 2021-10-19 新增游戏动力app每日任务(gamepower.js)
+- 2021-10-12 新增[轻之文库](www.linovel.net)每日签到
+- 2021-10-10
+  - 新增 Qoo app 每日签到
+  - 新增[天使动漫](https://tsdm.live/forum.php?mobile=yes)每日签到and打工
+  - 新增耽漫每日签到
 - 2021-10-04
   - 新增云原神和瞻彼文学签到 by ytgo
   - 修复帆软社区摇摇乐
@@ -201,18 +208,12 @@ npm install  axios crypto crypto-js fs iconv-lite js-yaml yargs
 
 </details> 
 
-
-
 # 致谢
-
 [@chavyleung](https://github.com/chavyleung/scripts/tree/master/rrtv)  
 [@lepecoder](https://github.com/lepecoder/checkin)  
 [@zsakvo](https://github.com/zsakvo)  
 
-
 # 支持一下
-
   ![支持一下](https://cdn.jsdelivr.net/gh/Wenmoux/wenpic/qrcode/wx_rewardqrcode.png)
-
 # 免责申明
 该项目仅供学习使用，严禁用于商业用途，由此造成的一切后果，本人概不负责。
