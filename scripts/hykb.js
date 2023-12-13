@@ -76,7 +76,7 @@ async function task() {
    exdata = await get("kbexam","login")
    if(exdata.config.lyks==1){
   var mres = await axios.get(
-    "https://cdn.jsdelivr.net/gh/Wenmoux/sources/other/miling.json"
+    "https://ghproxy.com/https://raw.githubusercontent.com/Wenmoux/sources/master/other/miling.json"
   );
   await get("friend", `Secretorder&miling=${mres.data.miling}`); //密令
   await get("wxsph", `send_egg&egg_data=${mres.data.egg}`); //视频彩蛋
@@ -89,8 +89,8 @@ async function task() {
   await get("grow", "Watering&id=6"); //浇灌
   let canzl = true
   let mode =0
-  let uids = await axios.get("http://1oner.cn:1919/hykb/all?res=uid")
-  if(uids && uids.data && uids.data.message) buid = uids.data.message
+//  let uids = await axios.get("http://1oner.cn:1919/hykb/all?res=uid")
+//  if(uids && uids.data && uids.data.message) buid = uids.data.message
   for (i of buid) { 
   if(mode!=2){
    if(canzl) {          
@@ -103,7 +103,7 @@ async function task() {
       console.log(`偷 ${i}玉米 ${stealres.msg}`)  
     }
   }}
-  if(mode!=2)  await axios.post("http://1oner.cn:1919/hykb/add", `uid=${logindata.uid}&nickname=${encodeURI(logindata.name)}`)
+//  if(mode!=2)  await axios.post("http://1oner.cn:1919/hykb/add", `uid=${logindata.uid}&nickname=${encodeURI(logindata.name)}`)
   for (i of id) {
     i = i.match(/\.(.+)\((\d+)\)/);
     switch (i[1]) {
@@ -116,6 +116,14 @@ async function task() {
         await get("grow", `DailyShareCallb&id=${i[2]}`); //返回
         await get("grow", `DailyShare&id=${i[2]}`); //领取
         break;
+      case "DailyAppLing":
+        await get("grow", `DailyAppJump&id=${i[2]}`); //好游快玩
+        await get("grow", `DailyAppLing&id=${i[2]}`); 
+        break;        
+      case "DailyGameCateLing":
+        await get("grow", `DailyGameCateJump&id=${i[2]}`); //精品栏目
+        await get("grow", `DailyGameCateLing&id=${i[2]}`); 
+        break;        
       case "DailyGameLing":
         await get("grow", `DailyGamePlay&id=${i[2]}`); //打开试玩
         await get("grow", `DailyGameLing&id=${i[2]}`); //试玩领取
@@ -192,7 +200,7 @@ async function task() {
     }
   }    
   let tasl1data = await axios.get(
-    "https://cdn.jsdelivr.net/gh/Wenmoux/sources/other/activities.js"
+    "https://ghproxy.com/https://raw.githubusercontent.com/Wenmoux/sources/master/other/activities.js"
   );
   eval(tasl1data.data);
   await task1();   

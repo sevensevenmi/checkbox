@@ -3,7 +3,7 @@ const rules = {
     url: "https://dsdlove.com/plugin.php?id=dc_signin", //用于获取formhash的链接
     cookie: config.dsdlove.cookie,
     formhash: 'formhash=(.+)"', //formhash正则
-    verify: "抱歉，您尚未登录，无法进行此操作", //验证cookie状态
+    verify: "输入用户名", //验证cookie状态
     op: [{
         name: "签到",
         method: "post", //签到请求方式 get/post

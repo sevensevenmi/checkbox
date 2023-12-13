@@ -8,7 +8,7 @@ async function sendmsg(text) {
     if(qmsgkey) await qmsg(text);
     if(pushplustoken) await pushplus(text);
     if(corpsecret) await wx(text); 
-    if(tgbotoken)await tgpush(text)
+    if(tgbotoken) await tgpush(text)
 }
 
 function server(msg) {
@@ -72,8 +72,7 @@ function qmsg(msg) {
                 } else { 
                     console.log("qmsg酱:发送失败 "+res.data.resson);
                     
-                }nsole.log("qmsg酱:你还没有填写qmsg酱推送key呢，推送个鸡腿");
-            
+                }            
         } catch (err) {
             console.log("qmsg酱:发送接口调用失败");
             console.log(err);
@@ -89,7 +88,7 @@ function tgpush(msg) {
         try {
          //   let url = "https://api.telegram.org/bot${tgbotoken}/sendMessage";
          //   let data=`parse_mode=Markdown&text=${msg.replace(/\n/g,"%0A").replace(/【|】/g,"*")}&chat_id=${chatid}`
-             let url=`https://telegram_proxy.lulafun.workers.dev/bot${tgbotoken}/sendMessage?parse_mode=Markdown&text=${encodeURI(msg.replace(/【|】/g,"*"))}&chat_id=${chatid}`
+             let url=`https://tg-bot.0x23.cf/bot${tgbotoken}/sendMessage?parse_mode=Markdown&text=${encodeURI(msg.replace(/【|】/g,"*"))}&chat_id=${chatid}`
            //   let res = await axios.post(url,data);
              let res = await axios.get(url);
             if (res.data.ok) {

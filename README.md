@@ -9,7 +9,7 @@
 
 # 简介
 一些常用网站以及app的签到,有用的话点个star⭐️呗  
-[点这里加TG群](https://t.me/xiubuye)  
+[点这里加TG群](https://t.me/htuoypa)  
 [dorajs交流群(懒得跑js的)](https://jq.qq.com/?_wv=1027&k=zVvFzMRX)  
 [checkbox交流群](https://jq.qq.com/?_wv=1027&k=u4nTAo4M)  
 需要什么签到可以去提[issues](https://github.com/wenmoux/checkbox/issues),也欢迎PR  
@@ -30,12 +30,10 @@
  - [x] [吾爱破解](www.52pojie.com)签到
  - [x] [网易云游戏](https://cloudgame.webapp.163.com/newer.html?invite_code=R6522U)每日签到得免费时长
  - [x] [晋江小说网](https://m.jjwxc.com/invite/index?novelid=2911400&inviteid=11581969)每日签到,得月石
- - [x] [什么值得买](smzdm.com)网页端每日签到
  - [x] 橙光游戏app每日签到+登陆奖励领取
  - [x] [龙空](lkong.cn)每日签到
  - [x] [NGA论坛](http://bbs.nga.cn/)每日签到
  - [x] [SF轻小说app](http://book.sfacg.com)每日签到+每日任务
- - [x] [CSDN](https://www.csdn.net/)每日签到+抽奖
  - [x] [mt论坛](https://bbs.binmt.cc/?fromuid=14593)每日签到
  - [x] [经管之家](https://bbs.pinggu.org/?fromuid=11925701)每日签到
  - [x] [好游快爆](https://huodong3.3839.com/n/hykb/friend/yaoqing.php?u=21039293)全任务(签到，分享/下载/体验游戏，抖音任务，邀请下载，照料好友),下载安装后首页搜索99999领取新人福利,爆米花可兑换实物周边,虚拟兑换码等
@@ -75,17 +73,31 @@
  - [x] 瞻彼文学app每日签到
  - [x] 云原神每日签到
  - [x] Qoo app 每日签到
- - [x] [天使动漫](https://tsdm.live/forum.php?mobile=yes)每日签到and打工
+ - [x] [天使动漫](https://tsdm.live/forum.php?mobile=yes)每日签到and打工 `tsdmsign为单独的签到模块，tsdmwork为单独的打工模块`
  - [x] [耽漫](99fuman.com)每日签到
  - [x] [轻之文库](www.linovel.net)每日签到
  - [x] [游戏动力app]()每日任务
  - [x] [立创](https://oshwhub.com)每日签到
  - [x] [捷配](https://www.jiepei.com/Member)每日签到
-
+ - [x] [花火论坛](www.sayhuahuo.com)每日签到
+ - [x] [17k小说](https://www.17k.com/)每日签到
+ - [x] [触站](https://m.huashi6.com/app)每日签到任务
+ - [x] [起点读书](https://m.qidian.com/) app每日签到+投推荐票+角色比心
+ - [x] [考试宝]()
+ - [x] 美团买菜每日任务
+ - [x] 次元姬小说每日任务
+ - [x] [AME字幕论坛](https://bbs.acgrip.com/)每日签到
+ - [x] [黑丝次元](https://heisi.moe/)每日签到
+ - [x] [克拉漫播]()每日签到
+ - [x] [库街区](https://www.kurobbs.com/download.html)每日任务
+ - [x] [linkai](https://chat.link-ai.tech/home?share=GBoWyH)每日签到 
+ - [x] [泡芙加速器](https://paofujiasu.com/)每日签到+看广告+兑换（抓包vx小程序）
+ - [x] [海贼王论坛](https://bbs.talkop.com/)每日签到
 </details>
+
  
 # 使用方法 (懂得自然懂 bushi  
-[教程：关于如何使用termux运行签到盒那件事](https://blog.1oner.cn/posts/termux-checkbox/)  
+[教程：关于如何使用termux运行签到盒那件事](https://blog.1oner.cn/p/termux-checkbox/)  
 termux可以使用crontab设置定时任务  
 写法参见crontab.list
 
@@ -96,30 +108,62 @@ termux可以使用crontab设置定时任务
 在`config.yml`文件里自行按照格式添加需要的任务,运行
    ```       
       git clone https://github.com/Wenmoux/checkbox.git
-      cd /sdcard/checkbox (这里还是要看你的路径)
+      cd checkbox (这里还是要看你的路径)
       npm install
-      node index.js
+      node checkbox.js
    ```  
    
          
 如不想填任务列表,可在index.js后加上对应脚本名字    
-如`node index.js acfun csdn`  
+如`node checkbox.js acfun csdn`  
 多脚本间用空格  
 一般用于定时任务 
 
  
 ## 青龙使用教程
+  
 ```
-ql repo https://github.com/Wenmoux/checkbox.git "index|install" "node_modules|icon" "scripts|config|Template|sendmsg"
+ql repo https://github.com/Wenmoux/checkbox.git "checkbox|install" "old" "modules|scripts|config|Template|sendmsg" "master"
 ```
- > 1 在面板内添加定时任务
- 2 手动运行签到盒安装任务 成功后请禁用
- 3 在`config.yml`里填写cookie以及需要运行的任务列表(开头cbList)等信息  
-
+ > 1 首先在青龙目录下config.sh设置里拉取sh后缀文件 大概这个自己找RepoFileExtensions  = xxx这一行 里边加上sh就可以了    
+ 2 在面板内添加定时任务 (上面ql repo那条 定时看你)    
+ 3 手动运行签到盒安装任务 无需禁用  
+ 4 在`ql/data/config/config.yml`里填写cookie以及需要运行的任务列表(开头cbList)等信息    
+ 5 注意 必须最新版青龙 不然你就手动创建个配置文件吧
 # other
 <details>
 <summary>更新日志</summary>
-
+- 2023-11-23 新增[海贼王论坛](https://bbs.talkop.com/)每日签到 by LinYuanovo
+- 2023-11-22 新增[泡芙加速器](https://paofujiasu.com/)每日签到+看广告+兑换 by LinYuanovo
+- 2023-10-23 新增[linkai](https://chat.link-ai.tech/home?share=GBoWyH)每日签到 
+- 2023-06-03 新增医生圈每日任务
+- 2023-04-30 新增阿里云盘签到 by yiyule10
+- 2023-04-07 新增库街区每日任务 by星落黎明
+- 2023-04-05 新增克拉漫播每日签到 by chatgpt
+- 2023-03-29 新增黑丝次元论坛签到
+- 2023-01-21 新增Anime字幕论坛签到
+- 2022-11-27 新增次元姬小说每日任务
+- 2022-08-28 新增美团买菜每日任务
+- 2022-08-14 修改游戏动力 && 轻之文库 token获取方式
+- 2022-07-20 
+  - 新增考试宝每日任务
+  - 适配远程配置文件(待测试
+- 2022-06-16 橙光新增日常活跃任务以及信息查询
+- 2022-06-11 
+  - 修复刺猬猫签到,更换为token方式
+  - 增加埋堆堆vip每日签到,去除无奖励任务
+- 2022-04-19
+  - 起点增加每日抽卡
+  - 增加4399页游签到
+  - 修改4399福利中心任务id获取方法
+- 2022-04-07 新增起点签到投票比心
+- 2022-04-05 修复nga app每日签到,增加每日任务
+- 2022-04-03 新增晋江小说app福利中心任务
+- 2022-02-14 新增触站app每日任务
+- 2022-02-13 增加部分好游快爆每日任务
+- 2022-02-05 新增17k小说每日签到/修复村花论坛签到
+- 2022-01-03 新增埋堆堆激励视频任务
+- 2021-11-15  [花火论坛](www.sayhuahuo.com)每日签到
 - 2021-10-24 
   - 修复绅士领域签到 更新青龙安装签到盒方式
   - 新增捷配和立创每日签到
@@ -214,6 +258,11 @@ ql repo https://github.com/Wenmoux/checkbox.git "index|install" "node_modules|ic
 [@zsakvo](https://github.com/zsakvo)  
 
 # 支持一下
-  ![支持一下](https://cdn.jsdelivr.net/gh/Wenmoux/wenpic/qrcode/wx_rewardqrcode.png)
+  ![支持一下](https://cdn.jsdelivr.net/gh/Wenmoux/wenpic/qrcode/wx_rewardqrcode.png)    
+
+
+  USDT TRC20:  TJtKtFuDB2mjKQbjxG6L79DVLKRNW2tM3g  
+  
+  
 # 免责申明
 该项目仅供学习使用，严禁用于商业用途，由此造成的一切后果，本人概不负责。

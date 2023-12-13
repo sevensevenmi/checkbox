@@ -52,6 +52,13 @@ async function task() {
         //获取试玩软件id
         let res = await get("login", "", true)
         if(sckstatus){
+        //兑换加速卡
+        if(config.youlecheng.duihuanka) {
+       for (dd of new Array(6) ){
+        await get("accelerator")
+        await sleep(4000)
+        }
+        }
         let glist = res.config.gameinfo_list
         console.log(`共获取到${glist.length}个试玩软件`)
         for (id of glist) {
@@ -67,7 +74,7 @@ async function task() {
                     else console.log("验证失败")
                 }
             }
-            */
+           */ 
             yxid = id.gid
             console.log(id.title)
             console.log("去下载")
@@ -81,11 +88,10 @@ async function task() {
                 if (pinfo.mark) console.log("当前共" + pinfo.mark + "积分")
             }
             await sleep(5000)
-        }
-
+        }        
         console.log("\n\n")
         let ccres = await get("login", "", true)
-        if (res.key == "ok") yxinfo = `【4399签到卡】积分: ${ccres.config.mark}`
+        if (res.key == "ok") yxinfo = `【4399签到卡】积分: ${ccres.config.mark}   补签卡：${ccres.config.supplementary_card}  加速卡：${ccres.config.accelerator_card} 荣耀卡：${ccres.config.glory_card}`
         return yxinfo
 }
     } else console.log("请先填写你的User-Agent再运行脚本")
